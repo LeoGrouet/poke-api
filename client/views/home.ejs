@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Pokémon</title>
-</head>
-<body>
-    <h1>Informations sur le Pokémon</h1>
-    <% for ( const poke of pokemon){%>
-    <p>Nom du Pokémon : <%= poke.name %></p>
-    <% } %>
-</body>
-</html>
+<%- include('./partials/header') %>
+    <h2 class="pokedex-title">Poké Happy</h2>
+        <div class="pokedex">
+        <% for (let i = 0; i < pokeImg.length; i++) { %>
+            <div class="pokedex-details">
+                <p class="pokedex-details-name"><%= pokeImg[i].name %></p>
+                <a class="pokedex-details-img" href="pokemon/<%= pokeImg[i].name %>">
+                    <img src="<%= pokeImg[i].sprites.front_default %>" alt="">
+                </a>
+                <ul class="pokedex-details-type-liste">
+                    <% for (const type of pokeType[i]) { %>
+                        <li class="pokedex-details-typebox-<%= type.type.name %>"><%= type.type.name %></li>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+        </div>
+        <span class="pokemon-loader">Charger plus de pokemon</span>
+
+        <%- include('./partials/footer') %>

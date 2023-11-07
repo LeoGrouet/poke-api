@@ -1,0 +1,109 @@
+html{
+    color: #ffffff;
+    font-family: 'Abril Fatface', serif;
+}
+
+body{
+    background-image: url(../img/anime-pokémon-472046.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.pokedex-title{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 250%;
+    height: 15vh;
+}
+
+.pokedex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center ;
+}
+
+.pokedex-details{
+    display: flex;
+    flex-direction: column;
+    width: 25vh;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+
+.pokedex-details-type-liste>li{
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 75%;
+    margin-bottom: 2px;
+}
+
+.pokedex-details-typebox-steel{
+    background-color: #AAAABB;
+}
+.pokedex-details-typebox-fighting{
+    background-color: #BB5544;
+}
+.pokedex-details-typebox-dragon{
+    background-color: #7766EE;
+}
+.pokedex-details-typebox-water{
+    background-color: #3399FF;
+}
+.pokedex-details-typebox-electric{
+    background-color: #FFBB33;
+}
+.pokedex-details-typebox-fire{
+    background-color: #FF4422;
+}
+.pokedex-details-typebox-ice{
+    background-color: #77DDFF;
+}
+.pokedex-details-typebox-bug{
+    background-color: #AABB22;
+}
+.pokedex-details-typebox-normal{
+    background-color: #BBAABB;
+}
+.pokedex-details-typebox-grass{
+    background-color: #77CC55;
+}
+.pokedex-details-typebox-poison{
+    background-color: #AA5599;
+}
+.pokedex-details-typebox-psychic{
+    background-color: #FF5599;
+}
+.pokedex-details-typebox-rock{
+    background-color: #BBAA66;
+}
+.pokedex-details-typebox-ground{
+    background-color: #DDBB55;
+}
+.pokedex-details-typebox-ghost{
+    background-color: #6666BB;
+}
+.pokedex-details-typebox-dark{
+    background-color: #665544;
+}
+.pokedex-details-typebox-flying{
+    background-color: #6699FF;
+}
+.pokedex-details-typebox-fairy{
+    background-color: #fdb9e9;
+}
+
+.pokemon-page-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.pokemon-page-img{
+    width: 20%;
+}

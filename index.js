@@ -10,6 +10,8 @@ app.set("view engine", "ejs");
 // Specify the directory where your views (EJS templates) are located
 app.set("views", path.join(__dirname, "client/views"));
 
+app.use(express.static(path.join(__dirname, "client")));
+
 // Other app configuration and routes
 // ...
 app.use(router);
