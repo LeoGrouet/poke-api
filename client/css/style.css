@@ -27,7 +27,7 @@ body{
 .pokedex-details{
     display: flex;
     flex-direction: column;
-    width: 25vh;
+    width: 30vh;
     align-items: center;
     margin-bottom: 5vh;
 }
@@ -145,4 +145,16 @@ body{
 
 .pokemon-statistiques-tr{
     margin: 10px;
+}
+
+.pokemon-page-switch-pokemon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pokemon-page-switch-pokemon>button{
+    width: 20%;
+    height: 10%;
 }

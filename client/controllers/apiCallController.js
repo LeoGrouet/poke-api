@@ -1,10 +1,11 @@
 const datamapper = require("../dataMapper/datamapper");
+let limit = 18;
 
 const APIFetch = {
   allPokemon: async function (req, res) {
     try {
       const pokemonsNameResponse = await fetch(
-        "https://pokeapi.co/api/v2/pokemon/?offset0&limit=20"
+        `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${limit}`
       );
       const pokemons = await pokemonsNameResponse.json();
       const pokemonData = pokemons.results;
@@ -41,10 +42,9 @@ const APIFetch = {
 
   onePokemonByName: async function (req, res) {
     try {
-      const pokemonName = req.params.name; // Utilisez req.params pour obtenir le nom du Pokémon
+      const pokemonName = req.params.order; // Utilisez req.params pour obtenir le nom du Pokémon
       const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
       const apiResponse = await fetch(url);
-
       if (apiResponse.status !== 200) {
         res.status(apiResponse.status).send("Le Pokémon n'a pas été trouvé.");
         return;
@@ -52,15 +52,13 @@ const APIFetch = {
 
       const getPokemonUrl = await apiResponse.json();
       const pokemon = getPokemonUrl;
-      console.log(pokemon);
-
+      console.log(pokemon.order);
       const stats = pokemon.stats;
       const statTable = [];
       for (const stat of stats) {
         const test = { name: stat.stat.name, base_stat: stat.base_stat };
         statTable.push(test);
       }
-
       res.render("pokemon", {
         pokemon,
         statTable,
