@@ -5,47 +5,54 @@
         <img class="pokemon-page-img" src="<%=pokemon.sprites.other['official-artwork'].front_default%>" alt="officialArtwork"></img>
         <div class="pokemon-page-stats">
             <section class="pokemon-statistiques">
-                <table>
-                    <tr>
+                <table class="pokemon-statistiques-table">
+                    <tr class="pokemon-statistiques-tr">
                         <td class="spacing"><%=statTable[0].name%></td>
                         <td><%=statTable[0].base_stat%></td>
-                        <td class="stat-bar">
+                            <td class="stat-bar">
+                                <div class="stat-bar-full" style="width: <%=statTable[0].base_stat%>%;">#</div>
+                                <div class="stat-bar-empty" style="width: <%=255-statTable[0].base_stat%>%;">#</div>
+                            </td>
 
-                        </td>
                     </tr>
-                    <tr>
+                    <tr class="pokemon-statistiques-tr">
                         <td class="spacing"><%=statTable[1].name%></td>
                         <td><%=statTable[1].base_stat%></td>
                         <td class="stat-bar">
-              
+                            <div class="stat-bar-full" style="width: <%=statTable[1].base_stat%>%;">#</div>
+                            <div class="stat-bar-empty" style="width: <%=255-statTable[1].base_stat%>%;">#</div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="pokemon-statistiques-tr">
                         <td class="spacing"><%=statTable[2].name%></td>
                         <td><%=statTable[2].base_stat%></td>
                         <td class="stat-bar">
-                       
+                            <div class="stat-bar-full" style="width: <%=statTable[2].base_stat%>%;">#</div>
+                            <div class="stat-bar-empty" style="width: <%=255-statTable[2].base_stat%>%;">#</div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="pokemon-statistiques-tr">
                         <td class="spacing"><%=statTable[3].name%></td>
                         <td><%=statTable[3].base_stat%></td>
                         <td class="stat-bar">
-        
+                            <div class="stat-bar-full" style="width: <%=statTable[3].base_stat%>%;">#</div>
+                            <div class="stat-bar-empty" style="width: <%=255-statTable[3].base_stat%>%;">#</div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="pokemon-statistiques-tr">
                         <td class="spacing"><%=statTable[4].name%></td>
                         <td><%=statTable[4].base_stat%></td>
                         <td class="stat-bar">
-      
+                            <div class="stat-bar-full" style="width: <%=statTable[4].base_stat%>px;">#</div>
+                            <div class="stat-bar-empty" style="width: <%=255-statTable[4].base_stat%>px;">#</div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="pokemon-statistiques-tr">
                         <td class="spacing"><%=statTable[5].name%></td>
                         <td><%=statTable[5].base_stat%></td>
                         <td class="stat-bar">
-                    
+                            <div class="stat-bar-full" style="width: <%=statTable[5].base_stat%>px;">#</div>
+                            <div class="stat-bar-empty" style="width: =255-<%statTable[5].base_stat%>px;">#</div>
                         </td>
                     </tr>
                 </table>

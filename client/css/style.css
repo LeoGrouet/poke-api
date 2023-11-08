@@ -99,11 +99,50 @@ body{
     background-color: #fdb9e9;
 }
 
+.pokemon-page-p{
+    font-size: xxx-large;
+}
+
 .pokemon-page-div{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .pokemon-page-img{
-    width: 20%;
+    width: 25%;
+}
+
+.pokemon-page-stats{
+    font-size: x-large;
+}
+
+.stat-bar{
+    background-color:#632B2B ;
+    border-radius: 15px;
+    width: 255px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.stat-bar-full{
+    color: white;
+    background-color:white ;
+    border-radius: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.stat-bar-empty{
+    color: #632B2B ;
+    background-color:#632B2B ;
+    border-radius: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.pokemon-statistiques-tr{
+    margin: 10px;
 }
