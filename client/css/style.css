@@ -15,6 +15,7 @@ body{
     display: flex;
     font-size: 250%;
     height: 15vh;
+    margin-right: 10vh;
 }
 
 .pokedex{
@@ -157,4 +158,48 @@ body{
 .pokemon-page-switch-pokemon>button{
     width: 20%;
     height: 10%;
+}
+
+.pokedex-nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.pokedex-title-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: row;
+}
+
+.nav-bar{
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pokedex-title-nav-li{
+    text-decoration: none ;
+    color:  #ffffff; 
+}
+
+.types-div{
+    display: grid;
+    flex-direction: row;
+    justify-content: center;  
+}
+
+.types-div-details{
+   display: flex;
+   flex-direction: row;
+} 
+
+.type-box{
+    justify-content: center;
+    display: flex;
+    border-radius: 15px;
+    min-width: 12vh;
+    height: 3vh;
 }

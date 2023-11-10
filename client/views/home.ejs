@@ -1,10 +1,10 @@
 <%- include('./partials/header') %>
-    <h2 class="pokedex-title">Poké Happy</h2>
+  
         <div class="pokedex">
         <% for (let i = 0; i < pokeImg.length; i++) { %>
             <div class="pokedex-details">
                 <p class="pokedex-details-name"><%= pokeImg[i].name %></p>
-                <a class="pokedex-details-img" href="pokemon/<%= pokeImg[i].order %>">
+                <a class="pokedex-details-img" href="pokemon/<%= pokeImg[i].id %>">
                     <img src="<%= pokeImg[i].sprites.front_default %>" alt="">
                 </a>
                 <ul class="pokedex-details-type-liste">
@@ -15,6 +15,6 @@
             </div>
         <% } %>
         </div>
-        <button id="loader-pokemon" class="pokemon-loader">Charger plus de pokemon</button>
+        <button id="loader-pokemon" class="pokemon-loader" data-limit="20" data-offset="20">Charger plus de pokemon</button>
 
         <%- include('./partials/footer') %>

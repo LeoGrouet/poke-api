@@ -2,14 +2,15 @@
 
     <div class="pokemon-page-div">
         <div class="pokemon-page-switch-pokemon">
-            <a href="/pokemon/<%= pokemon.order - 1 %>">
+            <a href="/pokemon/<%= pokemon.id - 1 %>">
                 Pokémon précédent
             </a>
-            <p class="pokemon-page-p"><%= pokemon.name%></p>
-            <a href="/pokemon/<%= pokemon.order + 1 %>">
+            <p class="pokemon-page-p"><%= pokemon.name %></p>
+            <a href="/pokemon/<%= pokemon.id + 1 %>">
                 Pokémon suivant
             </a>
         </div>
+        
         
         <img class="pokemon-page-img" src="<%=pokemon.sprites.other['official-artwork'].front_default%>" alt="officialArtwork"></img>
         <div class="pokemon-page-stats">
