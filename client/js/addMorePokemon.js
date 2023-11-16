@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       // Mettez à jour la vue avec les nouveaux Pokémon
       pokemonContainer.innerHTML = pokemonData;
-      res.render("home", {
+      res.send("home", {
         pokemon: pokemonData,
         pokeImg: pokemonImages,
         pokeType: pokemonTypes,

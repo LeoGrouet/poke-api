@@ -1,20 +1,28 @@
 <%- include('./partials/header') %>
   
-        <div class="pokedex">
-        <% for (let i = 0; i < pokeImg.length; i++) { %>
-            <div class="pokedex-details">
-                <p class="pokedex-details-name"><%= pokeImg[i].name %></p>
-                <a class="pokedex-details-img" href="pokemon/<%= pokeImg[i].id %>">
-                    <img src="<%= pokeImg[i].sprites.front_default %>" alt="">
-                </a>
-                <ul class="pokedex-details-type-liste">
-                    <% for (const type of pokeType[i]) { %>
-                        <li class="pokedex-details-typebox-<%= type.type.name %>"><%= type.type.name %></li>
-                    <% } %>
-                </ul>
+            <div class="pokedex">
+                <% for (let i = 0; i < pokeImg.length; i++) { %>
+                    <div class="pokedex-details">
+                        <p class="pokedex-details-name"><%= pokeImg[i].name %></p>
+                        <a class="pokedex-details-img" href="pokemon/<%= pokeImg[i].id %>">
+                            <% if (pokeImg[i].sprites.front_default == null) { %>
+                                <img src="<%= pokeImg[i].sprites.other[2] %>" alt="">
+                            <% } else { %>
+                                <img src="<%= pokeImg[i].sprites.front_default %>" alt="">
+                            <% } %>
+                        </a>
+                        <div class="add-button">
+                            <a href="<%= baseUrl %>/add/<%= pokeImg[i].id %>">Capturez le ! <img src="../img/IcTwotoneCatchingPokemon.svg" alt="pokeball"></a>
+                        </div>
+                        <ul class="pokedex-details-type-liste">
+                            <% for (const type of pokeType[i]) { %>
+                                <li class="pokedex-details-typebox-<%= type.type.name %>"><%= type.type.name %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% } %>
             </div>
-        <% } %>
-        </div>
+
         <button id="loader-pokemon" class="pokemon-loader" data-limit="20" data-offset="20">Charger plus de pokemon</button>
 
         <%- include('./partials/footer') %>

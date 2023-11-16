@@ -1,0 +1,29 @@
+<%- include('./partials/header') %>
+
+<div class="my-team">
+   
+      <% for (const poke of team){ %>
+        <div class="pokedex-details">
+            <p class="pokedex-details-name"><%= poke.forms.name %></p>
+
+              <a class="pokedex-details-img" href="pokemon/<%= poke.id %>">
+                  <% if (poke.sprites.front_default == null) { %>
+                      <img src="<%= poke.sprites.other[2] %>" alt="">
+                    <% } else { %>
+                      
+                      <img src="<%= poke.sprites.front_default %>" alt="">
+                    <% } %>
+              </a>
+            <ul class="pokedex-details-type-liste">
+            <% for (const type of poke.types) { %>
+              <li class="pokedex-details-typebox-<%= type.type.name %>"><%= type.type.name %></li>
+            <% } %>
+          </ul>
+            <div class="add-button"><a method="get" href="/delete/<%= poke.id %>">Supprimer le pokemon de l'équipe</a></div>
+
+        </div>
+      <%}%>
+   
+</div>
+
+<%- include('./partials/footer') %>

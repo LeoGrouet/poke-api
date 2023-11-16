@@ -1,13 +1,13 @@
 <%- include('./partials/header') %>
 
-<div class="types-div">
-  
-    <% for (const type of types) { %>
-        <div class="types-div-details">
-            <a href="/type/<%= type.name %>" class="type-box pokedex-details-typebox-<%= type.name %>"><%= type.name %></a>
-        </div>
-    <% } %>
-    </div>
-</div>
-<a class="pokemon-page-button" href="/">Revenir à la liste</a>
-    <%- include('./partials/footer') %>
+        <div class="types-div">
+        
+            <% for (const type of types) { %>
+                <div class="types-div-details">
+                    <a href="/type/<%= type.name %>" class="type-box pokedex-details-typebox-<%= type.name %>"><%= type.name %></a>
+                </div>
+            <% } %>
+            </div>
+    <a class="pokemon-page-button" href="/">Revenir à la liste</a>
+
+<%- include('./partials/footer') %>

@@ -9,13 +9,17 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
+
+.current-page{
+    text-decoration: underline;
+}
+
 .pokedex-title{
     justify-content: center;
     align-items: center;
     display: flex;
     font-size: 250%;
     height: 15vh;
-    margin-right: 10vh;
 }
 
 .pokedex{
@@ -43,6 +47,11 @@ body{
     color: white;
     font-size: 75%;
     margin-bottom: 2px;
+    min-height: 2vh;
+}
+
+.pokedex-details-type-liste{
+    min-height: 6vh;
 }
 
 .pokedex-details-typebox-steel{
@@ -174,21 +183,25 @@ body{
 }
 
 .nav-bar{
-    height: 15vh;
+    position: absolute;
+    right: 11%;
+    height: 16vh;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4vh;
 }
 
 .pokedex-title-nav-li{
-    text-decoration: none ;
     color:  #ffffff; 
 }
 
 .types-div{
-    display: grid;
+    display: flex;
     flex-direction: row;
-    justify-content: center;  
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw;
+    margin: 4vw 0vw;
 }
 
 .types-div-details{
@@ -199,7 +212,27 @@ body{
 .type-box{
     justify-content: center;
     display: flex;
+    align-items: center;
     border-radius: 15px;
     min-width: 12vh;
     height: 3vh;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.add-button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.add-button img{
+    height: 7vh;
+}
+
+.my-team{
+    display: flex;
 }
