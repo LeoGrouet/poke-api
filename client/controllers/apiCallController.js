@@ -131,10 +131,28 @@ const APIFetch = {
         pokemonTypes.push(imageData.types);
       }
 
+      const pokemonNameFr = [];
+
+      for (let i = 0; i < pokemonImages.length; i++) {
+        const pokemonName = pokemonImages[i].name; // Utilisez l'ID du Pokémon depuis l'image
+
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}/`
+        );
+        const data = await response.json();
+
+        const frenchName = data.names.find(
+          (name) => name.language.name === "fr"
+        ).name;
+        pokemonNameFr.push(frenchName);
+      }
+      console.log(pokemonNameFr);
+
       res.render("home", {
         baseUrl: "",
         pokeImg: pokemonImages,
         pokeType: pokemonTypes,
+        pokeNameFr: pokemonNameFr,
       });
     } catch (error) {
       res.status(500).send(error.message);

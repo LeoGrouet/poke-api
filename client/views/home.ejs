@@ -3,7 +3,7 @@
             <div class="pokedex">
                 <% for (let i = 0; i < pokeImg.length; i++) { %>
                     <div class="pokedex-details">
-                        <p class="pokedex-details-name"><%= pokeImg[i].name %></p>
+                        <p class="pokedex-details-name"><%= pokeNameFr[i] %></p>
                         <a class="pokedex-details-img" href="pokemon/<%= pokeImg[i].id %>">
                             <% if (pokeImg[i].sprites.front_default == null) { %>
                                 <img src="<%= pokeImg[i].sprites.other[2] %>" alt="">

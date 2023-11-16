@@ -1,6 +1,10 @@
 html{
     color: #ffffff;
-    font-family: 'Abril Fatface', serif;
+}
+
+.pokedex-title{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: xx-large;
 }
 
 body{
@@ -8,6 +12,7 @@ body{
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .current-page{
@@ -35,6 +40,13 @@ body{
     width: 30vh;
     align-items: center;
     margin-bottom: 5vh;
+    border-radius: 5%;
+    margin: 4%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pokedex-details-name{
+    margin: 2vh;
 }
 
 .pokedex-details-type-liste>li{
@@ -120,7 +132,7 @@ body{
 }
 
 .pokemon-page-img{
-    width: 25%;
+    width: 30%;
 }
 
 .pokemon-page-stats{
@@ -224,7 +236,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2vh;
     text-decoration: none;
     color: #ffffff;
 }
@@ -235,4 +246,8 @@ body{
 
 .my-team{
     display: flex;
+}
+
+img{
+    height: 20vh;
 }
