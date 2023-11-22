@@ -132,7 +132,8 @@ body{
 }
 
 .pokemon-page-img{
-    width: 30%;
+    width: 20%;
+    height: 20%;
 }
 
 .pokemon-page-stats{
@@ -250,4 +251,27 @@ body{
 
 img{
     height: 20vh;
+}
+
+/* Formulaire */
+
+.container-main-div-login{
+    justify-content: center;
+}
+
+.main-div-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-page-form{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 33vw;
+}
+
+.login-form-input{
+    display: contents;
 }

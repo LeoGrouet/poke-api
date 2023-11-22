@@ -1,0 +1,30 @@
+<%- include('./partials/header') %>
+
+<div class="container-main-div-login">
+    <div id="popupLogin" class="main-div-login">
+        <div class="login-title"><p>Bienvenue jeune dresseur</p></div>
+        <div class="login-form">
+            <fieldset>
+          <form class="login-page-form" method="POST" action="/player">
+            <div class="login-form-input">
+                <label class="login-form-username-label" for="username">Pseudo</label>
+              <input class="login-form-username-input" for="username" placeholder="Username" type="username" id="username" name="username" required>
+            </div>
+            <div class="login-form-input">
+                <label class="login-form-email-label" for="email">Email</label>
+              <input class="login-form-email-input" for="email" placeholder="Email" type="email" id="email" name="email" required>
+            </div>
+            <div class="login-form-input">
+                <label class="login-form-password-label" for="password">Mot de passe</label>
+              <input class="login-form-password-input" for="password" placeholder="Password" type="password" id="password" name="password" required>
+            </div>
+        </div>
+        <div class="login-submit">
+          <button class="admin-login-button" type="submit">Sauvegarder la partie</button>
+        </div>
+         </form>
+         </fieldset>
+      </div>
+    </div>
+
+<%- include('./partials/footer') %>

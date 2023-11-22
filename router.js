@@ -2,6 +2,7 @@ const express = require("express");
 const APIFetch = require("./client/controllers/apiCallController");
 const playerControllers = require("./serveur/playerControllers");
 const teamController = require("./client/controllers/teamControllers");
+const loginController = require("./client/controllers/loginController");
 
 const router = express.Router();
 
@@ -18,6 +19,8 @@ router.get("/team", teamController.getMyTeam);
 router.get("/add/:id", APIFetch.addPokemonToTeam);
 
 router.get("/delete/:id", teamController.deletePokemonOfTeam);
+
+router.get("/login", loginController.loginPage);
 
 router.post("/player", playerControllers.createPlayer);
 
