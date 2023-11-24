@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
+const { connectDB } = require("./serveur/services/database");
 const bodyParser = require("body-parser");
 const router = require("./router");
 const session = require("express-session");
@@ -29,6 +30,8 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+connectDB().catch((err) => console.log(err));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

@@ -1,6 +1,6 @@
 const loginController = {
   loginPage: async (req, res) => {
-    res.render("login");
+    res.render("log");
   },
 };
 

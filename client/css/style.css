@@ -275,3 +275,24 @@ img{
 .login-form-input{
     display: contents;
 }
+
+.search-bar{
+    position: absolute;
+    display: flex;
+    right: 25%;
+    background: content-box;
+    left: 15%;
+    top: 14%;
+    width: 25%;
+    justify-content: center;
+    color: #ffffff;
+    border-radius: 10px;
+}
+.search-bar::placeholder{
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-bar-button{
+    display: flex;
+    
+}
