@@ -140,13 +140,12 @@ const APIFetch = {
           `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}/`
         );
         const data = await response.json();
-
+        // Gestion du nom français des pokémons
         const frenchName = data.names.find(
           (name) => name.language.name === "fr"
         ).name;
         pokemonNameFr.push(frenchName);
       }
-      console.log(pokemonNameFr);
 
       res.render("home", {
         baseUrl: "",
@@ -160,11 +159,13 @@ const APIFetch = {
   },
 
   addPokemonToTeam: async (req, res) => {
-    const team = req.session.team;
-    const id = req.params.id;
+    const team = req.session.team; // récupere l'array Team
+    const id = req.params.id; // Récupere l'id du pokémon cliqué
     const currentUrl = req.get("referer"); // permet de resté sur la page en cours
 
+    // Condition : tant que la team ne comporte pas 6 pokémon
     if (team.length < 6) {
+      // Alors je push le pokémon selectionné dans la Team
       try {
         const pokemonByOrder = await fetch(
           `https://pokeapi.co/api/v2/pokemon/${id}`
@@ -176,8 +177,11 @@ const APIFetch = {
       } catch (error) {
         res.status(500).send(error.message);
       }
+      // Sinon un message d'erreur m'indique que mon équipe est pleine.
     } else {
-      res.status(400).send("L'équipe est déjà pleine (limite de 6 Pokémon).");
+      res
+        .send("L'équipe est déjà pleine (limite de 6 Pokémon)")
+        .redirect(currentUrl);
     }
   },
 };

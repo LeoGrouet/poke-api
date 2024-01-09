@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
 
             <div class="pokedex">
-                <div>  <input oninput="searchbarFunction()" id="search-bar" class="search-bar" type="text" placeholder="Trouve un pokémon"> </div>
+                <!-- <div>  <form action="/pokemon/" method="get"><input id="search-bar" class="search-bar" type="text" placeholder="Trouve un pokémon"> <button type="submit">Search</button></form></div> -->
                 <% for (let i = 0; i < pokeImg.length ; i++) { %>
                     <div class="pokedex-details">
                         <p class="pokedex-details-name"><%= pokeNameFr[i] %></p>

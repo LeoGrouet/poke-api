@@ -1,6 +1,7 @@
 const Player = require("../models/playerModel");
 
 const playerControllers = {
+  // Create
   newPlayer: async (req, res) => {
     const newPlayer = new Player({
       username: req.body.username,
@@ -16,7 +17,7 @@ const playerControllers = {
       res.status(500).send("Error adding player");
     }
   },
-
+  // Read
   findOnePlayer: async (req, res) => {
     try {
       const { email, password } = req.body;
@@ -30,7 +31,7 @@ const playerControllers = {
       res.status(500).send("Error retrieving Player");
     }
   },
-
+  // Read More
   findAllPlayers: async (req, res) => {
     try {
       const players = await Player.find({});
@@ -40,7 +41,22 @@ const playerControllers = {
       res.status(500).send("Error retrieving Players");
     }
   },
+  // Update
+  updatePlayer: async (req, res) => {
+    const playerId = req.params.id;
 
+    try {
+      const player = await Player.findByIdAndUpdate(playerId, req.body, {
+        new: true,
+        runValidators: true,
+      });
+      if (!player) return res.status(404).send("Player not found");
+      res.send(player);
+    } catch (e) {
+      res.status(500).send(e);
+    }
+  },
+  // Delete
   deletePlayer: async (req, res) => {
     const memberId = req.params.id; // l'ID du membre à supprimer
     try {

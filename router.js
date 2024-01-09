@@ -22,6 +22,10 @@ router.get("/delete/:id", teamController.deletePokemonOfTeam);
 
 router.get("/login", loginController.loginPage);
 
+router.get("signin");
+
 router.post("/player", playerControllers.newPlayer);
+
+//router.patch("player/:id", playerControllers.updatePlayer);
 
 module.exports = router;
