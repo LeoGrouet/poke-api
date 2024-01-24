@@ -42,5 +42,3 @@ app.use(router);
 app.listen(4000, () => {
   console.log(`Server listening on port ${port}`);
 });
-
-// Test commit

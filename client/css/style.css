@@ -309,6 +309,10 @@ img{
 
 .hamburger {
     cursor: pointer;
+    display: flex;
+    position: relative;
+    right: -26%;
+    z-index: 2;
   }
   
   .hamburger input {
@@ -347,5 +351,21 @@ img{
   }
   
   .nav-bar-mobile{
-    border: solid black;
+    gap: 8%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: hwb(0 1% 92%);
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    position: fixed;
   }
+
+  .pokedex-title-nav-li-mobile{
+    font-size: x-large;
+    text-decoration: none;
+    color: aliceblue;
+  }
+  

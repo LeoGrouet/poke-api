@@ -36,9 +36,10 @@ const checkbox = document.querySelector(".menuburger-checkbox");
 checkbox.addEventListener("click", () => {
   const checked = checkbox.checked;
   const mobile = document.querySelector(".nav-bar-mobile");
-  console.log(checked);
+
   if (checked === true) {
     mobile.style.display = "flex";
+    mobile.style.transition = "ease 2s all ";
   } else {
     mobile.style.display = "none";
   }
