@@ -2,7 +2,7 @@ const express = require("express");
 const APIFetch = require("./client/controllers/apiCallController");
 const playerControllers = require("./serveur/controllers/playerController");
 const teamController = require("./client/controllers/teamControllers");
-const loginController = require("./client/controllers/loginController");
+const registerController = require("./client/controllers/registerController.js");
 
 const router = express.Router();
 
@@ -20,12 +20,12 @@ router.get("/add/:id", APIFetch.addPokemonToTeam);
 
 router.get("/delete/:id", teamController.deletePokemonOfTeam);
 
-router.get("/login", loginController.loginPage);
+router.get("/login", registerController.loginPage);
 
-router.get("signin");
+router.get("/register", registerController.register);
 
-router.post("/player", playerControllers.newPlayer);
+// router.post("/signin", registerController.inscription);
 
-//router.patch("player/:id", playerControllers.updatePlayer);
+// router.post("/login", registerController.);
 
 module.exports = router;

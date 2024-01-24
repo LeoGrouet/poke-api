@@ -17,6 +17,7 @@ const playerControllers = {
       res.status(500).send("Error adding player");
     }
   },
+
   // Read
   findOnePlayer: async (req, res) => {
     try {
@@ -31,6 +32,7 @@ const playerControllers = {
       res.status(500).send("Error retrieving Player");
     }
   },
+
   // Read More
   findAllPlayers: async (req, res) => {
     try {
@@ -41,6 +43,7 @@ const playerControllers = {
       res.status(500).send("Error retrieving Players");
     }
   },
+
   // Update
   updatePlayer: async (req, res) => {
     const playerId = req.params.id;
@@ -56,6 +59,7 @@ const playerControllers = {
       res.status(500).send(e);
     }
   },
+
   // Delete
   deletePlayer: async (req, res) => {
     const memberId = req.params.id; // l'ID du membre à supprimer

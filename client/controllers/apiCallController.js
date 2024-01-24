@@ -1,14 +1,18 @@
-// const datamapper = require("../../serveur/datamapper");
-
+// Call API method
 const APIFetch = {
+  //--------------------------------------------------------------------------------------
+
+  // Function to fetch pokemons from pokemon-api with a limit of 20 in the begining
   allPokemon: async (req, res) => {
     try {
+      // Put the limit and the offset in variable
       const limit = req.query.limit || 20;
       const offset = req.query.offset || 0;
       const pokemonsNameResponse = await fetch(
         `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`
       );
 
+      //
       const pokemons = await pokemonsNameResponse.json();
       const pokemonData = pokemons.results;
 
@@ -29,7 +33,7 @@ const APIFetch = {
       }
 
       for (let i = 0; i < pokemonData.length; i++) {
-        const pokemonName = pokemonData[i].name; // Utilisez l'ID du Pokémon depuis l'image
+        const pokemonName = pokemonData[i].name;
 
         const response = await fetch(
           `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}/`
@@ -47,7 +51,7 @@ const APIFetch = {
         pokemon: pokemonData,
         pokeImg: pokemonImages,
         pokeType: pokemonTypes,
-        pokeNameFr: pokemonNameFr, // Ajoutez le nom français des Pokémon à la vue
+        pokeNameFr: pokemonNameFr,
         limit: limit,
         offset: offset,
       });
@@ -56,10 +60,20 @@ const APIFetch = {
     }
   },
 
+  //--------------------------------------------------------------------------------------
+
   onePokemonByNumber: async (req, res) => {
     try {
-      const pokemonNumber = req.params.order; // Utilisez req.params pour obtenir le nom du Pokémon
-      let url = `https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`;
+      let pokemonNumber = req.params.order;
+      let url; // Declare url as a local variable
+
+      if (pokemonNumber < 1) {
+        pokemonNumber = 1;
+      } else if (pokemonNumber > 1025) {
+        pokemonNumber = 1025;
+      }
+
+      url = `https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`;
 
       const apiResponse = await fetch(url);
       if (apiResponse.status !== 200) {
@@ -85,6 +99,8 @@ const APIFetch = {
     }
   },
 
+  //--------------------------------------------------------------------------------------
+
   getTypes: async (req, res) => {
     try {
       const urlTypes = await fetch(
@@ -100,6 +116,8 @@ const APIFetch = {
       res.status(500).send(error.message);
     }
   },
+
+  //--------------------------------------------------------------------------------------
 
   getPokemonsOfOneType: async (req, res) => {
     try {
@@ -157,6 +175,8 @@ const APIFetch = {
       res.status(500).send(error.message);
     }
   },
+
+  //--------------------------------------------------------------------------------------
 
   addPokemonToTeam: async (req, res) => {
     const team = req.session.team; // récupere l'array Team
