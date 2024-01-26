@@ -30,6 +30,33 @@ const teamController = {
     });
   },
 
+  addPokemonToTeam: async (req, res) => {
+    const team = req.session.team; // récupere l'array Team
+    const id = req.params.id; // Récupere l'id du pokémon cliqué
+    const currentUrl = req.get("referer"); // permet de resté sur la page en cours
+
+    // Condition : tant que la team ne comporte pas 6 pokémon
+    if (team.length < 6) {
+      // Alors je push le pokémon selectionné dans la Team
+      try {
+        const pokemonByOrder = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${id}`
+        );
+        const pokemon = await pokemonByOrder.json();
+        team.push(pokemon);
+
+        res.redirect(currentUrl);
+      } catch (error) {
+        res.status(500).send(error.message);
+      }
+      // Sinon un message d'erreur m'indique que mon équipe est pleine.
+    } else {
+      res
+        .send("L'équipe est déjà pleine (limite de 6 Pokémon)")
+        .redirect(currentUrl);
+    }
+  },
+
   deletePokemonOfTeam: async (req, res) => {
     try {
       const idToRemove = parseInt(req.params.id, 10);

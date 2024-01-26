@@ -16,7 +16,7 @@ router.get("/type/:type", APIFetch.getPokemonsOfOneType);
 
 router.get("/team", teamController.getMyTeam);
 
-router.get("/add/:id", APIFetch.addPokemonToTeam);
+router.get("/add/:id", teamController.addPokemonToTeam);
 
 router.get("/delete/:id", teamController.deletePokemonOfTeam);
 
@@ -24,7 +24,7 @@ router.get("/login", registerController.loginPage);
 
 router.get("/register", registerController.register);
 
-// router.post("/signin", registerController.inscription);
+router.post("/register", registerController.signin);
 
 // router.post("/login", registerController.);
 

@@ -9,6 +9,7 @@ const registerController = {
   },
   signin: async (req, res) => {
     const newPlayer = await playerController.newPlayer();
+    return;
   },
 };
 
