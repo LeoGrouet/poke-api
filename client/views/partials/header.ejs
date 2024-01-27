@@ -10,15 +10,14 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">   
     <script src="/js/addMorePokemon.js" defer ></script>
-    <script src="/js/dynamisme.js" defer ></script>
+    <!-- <script src="/js/responsivehandler.js" defer ></script> -->
     <script src="/js/utils.js" defer ></script>
     <script src="/js/menuburger.js" defer ></script>
     <title>Poké Happy</title>
 </head>
 <body>
-    <div class="pokedex-nav-bar" >
-        <div class="pokedex-title-div">
-            <h2 class="pokedex-title"><a class="current-page pokedex-title-nav-li" href="/">Poké Happy</a></h2>
+    <div class="pokedex-title-div">
+        <h2 class="pokedex-title"><a class="current-page pokedex-title-nav-li" href="/">Poké Happy</a></h2>
             <nav class="nav-bar">
                 <a href="/types" id="type-nav" class="pokedex-title-nav-li">Types</a>
                 <a href="/team" id="team-nav" class="pokedex-title-nav-li">Team</a>
@@ -27,20 +26,20 @@
 
             <label class="hamburger" style="display: none;">
                 <input class="menuburger-checkbox" type="checkbox">
-                <svg viewBox="0 0 32 32">
-                  <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-                  <path class="line" d="M7 16 27 16"></path>
-                </svg>
-              </label>
+                    <svg viewBox="0 0 32 32">
+                        <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                        <path class="line" d="M7 16 27 16"></path>
+                    </svg>
+            </label>
 
-              <nav class="nav-bar-mobile" style="display: none;">
+            <nav class="nav-bar-mobile" style="display: none;">
                 <a href="/" id="home-nav" class="pokedex-title-nav-li-mobile">Home</a>
-                <a href="/types" id="type-nav" class="pokedex-title-nav-li-mobile">Types</a>
-                <a href="/team" id="team-nav" class="pokedex-title-nav-li-mobile">Team</a>
-                <a href="/login" id="login-nav" class="pokedex-title-nav-li-mobile">Login</a>
+                <a href="/types" id="type-nav-mobile" class="pokedex-title-nav-li-mobile">Types</a>
+                <a href="/team" id="team-nav-mobile" class="pokedex-title-nav-li-mobile">Team</a>
+                <a href="/login" id="login-nav-mobile" class="pokedex-title-nav-li-mobile">Login</a>
             </nav>
             
-        </div>
     </div>
+   
 
     

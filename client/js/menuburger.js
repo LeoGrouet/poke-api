@@ -1,5 +1,3 @@
-let size = window.innerWidth;
-
 function responsiveNavBar() {
   let size = window.innerWidth; // Initialiser la variable size avec la largeur initiale
 
@@ -8,14 +6,17 @@ function responsiveNavBar() {
     const navbar = document.querySelector(".nav-bar");
     const mobile = document.querySelector(".nav-bar-mobile");
     const menu = document.querySelector(".hamburger");
+    let mode;
 
     if (size > 950) {
       navbar.style.display = "flex";
       mobile.style.display = "none";
       menu.style.display = "none";
+      mode = "desktop";
     } else if (size <= 950) {
       navbar.style.display = "none";
       menu.style.display = "flex";
+      mode = "mobile";
     }
   };
 
@@ -44,3 +45,5 @@ checkbox.addEventListener("click", () => {
     mobile.style.display = "none";
   }
 });
+
+console.log(updateNavBarVisibility.mode);

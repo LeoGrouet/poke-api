@@ -1,6 +1,6 @@
 const express = require("express");
 const APIFetch = require("./client/controllers/apiCallController");
-const playerControllers = require("./serveur/controllers/playerController");
+const playerController = require("./serveur/controllers/playerController");
 const teamController = require("./client/controllers/teamControllers");
 const registerController = require("./client/controllers/registerController.js");
 
@@ -16,16 +16,16 @@ router.get("/type/:type", APIFetch.getPokemonsOfOneType);
 
 router.get("/team", teamController.getMyTeam);
 
-router.get("/add/:id", APIFetch.addPokemonToTeam);
+router.get("/add/:id", teamController.addPokemonToTeam);
 
 router.get("/delete/:id", teamController.deletePokemonOfTeam);
 
-router.get("/login", registerController.loginPage);
+router.get("/login", registerController.login);
 
-router.get("/register", registerController.register);
+router.get("/signup", registerController.signup);
 
-// router.post("/signin", registerController.inscription);
+router.post("/signup", registerController.signupPost);
 
-// router.post("/login", registerController.);
+router.post("/login", registerController.loginPost);
 
 module.exports = router;
