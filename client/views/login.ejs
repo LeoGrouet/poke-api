@@ -2,17 +2,13 @@
 
 <div class="container-main-div-login">
     <div id="popupLogin" class="main-div-login">
-        <div class="login-title"><p>Bienvenue jeune dresseur</p></div>
+        <div class="login-title"><p>Login</p></div>
         <div class="login-form">
             <fieldset>
           <form class="login-page-form" method="POST" action="/login">
             <div class="login-form-input">
                 <label class="login-form-username-label" for="username">Pseudo</label>
               <input class="login-form-username-input" for="username" placeholder="Username" type="username" id="username" name="username" required>
-            </div>
-            <div class="login-form-input">
-                <label class="login-form-email-label" for="email">Email</label>
-              <input class="login-form-email-input" for="email" placeholder="Email" type="email" id="email" name="email" required>
             </div>
             <div class="login-form-input">
                 <label class="login-form-password-label" for="password">Mot de passe</label>
@@ -25,7 +21,7 @@
          </form>
          </fieldset>
       </div>
-      <a href="/register">Je ne suis pas encore un dresseur</a>
+      <a href="/signup">Je ne suis pas encore un dresseur</a>
     </div>
 
 <%- include('./partials/footer') %>

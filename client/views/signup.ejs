@@ -2,10 +2,10 @@
 
 <div class="container-main-div-login">
     <div id="popupLogin" class="main-div-login">
-        <div class="login-title"><p>Bienvenue jeune dresseur</p></div>
+        <div class="login-title"><p>Signup</p></div>
         <div class="login-form">
             <fieldset>
-          <form class="login-page-form" method="POST" action="/register">
+          <form class="login-page-form" method="POST" action="/signup">
             <div class="login-form-input">
                 <label class="login-form-username-label" for="username">Pseudo</label>
               <input class="login-form-username-input" for="username" placeholder="Username" type="username" id="username" name="username" required>
@@ -20,13 +20,12 @@
             </div>
         </div>
         <div class="login-submit">
-          <button class="admin-login-button" type="submit">Sauvegarder la partie</button>
-          <%- console.log(req.body)%>
+          <button class="admin-login-button" type="submit">Sauvegarder ma partie</button>
         </div>
          </form>
          </fieldset>
       </div>
-
+      <a href="/login">Je suis déja un dresseur</a>
     </div>
 
 <%- include('./partials/footer') %>
