@@ -369,3 +369,7 @@ img{
     color: aliceblue;
   }
   
+
+  .pokemon-to-find{
+    filter: contrast(0);
+  }

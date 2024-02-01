@@ -5,9 +5,11 @@ const registerController = {
   login: (req, res) => {
     res.render("login");
   },
+
   signup: (req, res) => {
     res.render("signup");
   },
+
   signupPost: async (req, res) => {
     const data = {
       username: req.body.username,
@@ -39,6 +41,7 @@ const registerController = {
       const password = req.body.password;
       const comparePassword = await bcrypt.compare(password, check.password);
       if (comparePassword) {
+        console.log(player);
         res.redirect("/");
       } else {
         res.send("Mot de passe incorect");

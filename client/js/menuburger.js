@@ -45,5 +45,3 @@ checkbox.addEventListener("click", () => {
     mobile.style.display = "none";
   }
 });
-
-console.log(updateNavBarVisibility.mode);

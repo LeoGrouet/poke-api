@@ -24,19 +24,13 @@ app.use(
   })
 );
 
-app.use((req, res, next) => {
-  if (!req.session.team) {
-    req.session.team = [];
-  }
-  next();
-});
-
 connectDB().catch((err) => console.log(err));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Other app configuration and routes
 // ...
+
 app.use(router);
 // Start the Express server
 app.listen(4000, () => {

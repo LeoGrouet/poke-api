@@ -1,7 +1,4 @@
-// Call API method
 const APIFetch = {
-  //--------------------------------------------------------------------------------------
-
   // Function to fetch pokemons from pokemon-api with a limit of 20 in the begining
   allPokemon: async (req, res) => {
     try {
@@ -12,7 +9,6 @@ const APIFetch = {
         `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`
       );
 
-      //
       const pokemons = await pokemonsNameResponse.json();
       const pokemonData = pokemons.results;
 
@@ -60,8 +56,6 @@ const APIFetch = {
     }
   },
 
-  //--------------------------------------------------------------------------------------
-
   onePokemonByNumber: async (req, res) => {
     try {
       let pokemonNumber = req.params.order;
@@ -99,8 +93,6 @@ const APIFetch = {
     }
   },
 
-  //--------------------------------------------------------------------------------------
-
   getTypes: async (req, res) => {
     try {
       const urlTypes = await fetch(
@@ -116,8 +108,6 @@ const APIFetch = {
       res.status(500).send(error.message);
     }
   },
-
-  //--------------------------------------------------------------------------------------
 
   getPokemonsOfOneType: async (req, res) => {
     try {
@@ -175,8 +165,6 @@ const APIFetch = {
       res.status(500).send(error.message);
     }
   },
-
-  //--------------------------------------------------------------------------------------
 };
 
 module.exports = APIFetch;
