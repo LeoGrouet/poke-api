@@ -373,3 +373,11 @@ img{
   .pokemon-to-find{
     filter: contrast(0);
   }
+
+  .winning-div{
+    color: #77CC55;
+  }
+
+  .loosing-div{
+    color: #BB5544;
+  }
