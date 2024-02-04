@@ -3,7 +3,6 @@ function handleTheGuess() {
   const pokemonToGuess = document.getElementById("name-to-guess").innerText;
   const pokeImage = document.querySelector(".pokemon-to-find");
   const pokeDiv = document.querySelector(".guess-pokemon-div");
-  console.log(userGuess, pokemonToGuess);
 
   if (
     pokemonToGuess.trim().toLocaleLowerCase() ===
@@ -12,7 +11,7 @@ function handleTheGuess() {
     console.log("GG mec");
     pokeImage.style.filter = "contrast(1)";
     const newDiv = document.createElement("div");
-    newDiv.innerHTML = "tu as gagné";
+    newDiv.innerHTML = `tu as gagné, c'était bien ${pokemonToGuess}`;
     newDiv.classList.add = "winning-div";
     pokeDiv.appendChild(newDiv);
   } else {

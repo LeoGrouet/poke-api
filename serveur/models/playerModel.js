@@ -19,8 +19,19 @@ const playerSchema = new mongoose.Schema({
     required: true,
   },
   team: {
-    type: [String],
-    default: [],
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId, // Si les éléments du tableau sont des références à d'autres documents
+        ref: "Pokemon", // Remplacez 'Pokemon' par le modèle approprié
+      },
+    ],
+    validate: {
+      validator: function (v) {
+        return v.length <= 6;
+      },
+      message: (props) =>
+        `Le tableau 'team' doit contenir au maximum 6 éléments.`,
+    },
   },
   date_inscription: {
     type: Date,
