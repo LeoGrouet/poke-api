@@ -371,7 +371,9 @@ img{
   
 
   .pokemon-to-find{
+    position: relative;
     filter: contrast(0);
+    z-index: -1;
   }
 
   .winning-div{

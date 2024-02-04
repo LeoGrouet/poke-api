@@ -1,3 +1,5 @@
+const Pokemon = require("../../serveur/models/pokemonModel");
+
 const gamesController = {
   whosThePokemon: async (req, res) => {
     const randomNumber = Math.floor(Math.random() * (150 - 1) + 1);
@@ -23,6 +25,16 @@ const gamesController = {
       (name) => name.language.name === "fr"
     ).name;
 
+    try {
+      await Pokemon.deleteMany();
+      await Pokemon.insertMany({
+        name: frenchName,
+        image: pokemonToFind.image,
+      });
+      console.log("Pokemon successfully send to db");
+    } catch (error) {
+      console.log("Houston, on a un ptit probleme");
+    }
     res.render("guessThePokemon", {
       // Pokemon as pokemonToFind
       pokemon: pokemonToFind,
