@@ -6,6 +6,7 @@ const teamController = {
       const message = "Vous devez être connecté pour accéder à cette page";
       req.session.message = message;
       res.redirect("/login");
+      
       return;
     }
 
