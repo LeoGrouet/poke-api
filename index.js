@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
-const { connectDB } = require("./serveur/services/database");
+const { connectDB } = require("./server/services/database");
 const bodyParser = require("body-parser");
 const router = require("./router");
 const session = require("express-session");

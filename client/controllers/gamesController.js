@@ -1,4 +1,4 @@
-const Pokemon = require("../../serveur/models/pokemonModel");
+const Pokemon = require("../../server/models/pokemonModel");
 
 const gamesController = {
   whosThePokemon: async (req, res) => {
