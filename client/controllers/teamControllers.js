@@ -1,6 +1,17 @@
+const player = require("../../server/models/playerModel");
+
 const teamController = {
   getMyTeam: async (req, res) => {
-    const team = req.session.team;
+    if (!req.session.player) {
+      const message = "Vous devez être connecté pour accéder à cette page";
+      req.session.message = message;
+      res.redirect("/login");
+      
+      return;
+    }
+
+    const team = req.session.player.team;
+    // const team = await player.team;
 
     const pokemonTypes = [];
     const pokemonNameFr = [];
@@ -22,7 +33,6 @@ const teamController = {
       ).name;
       pokemonNameFr.push(frenchName);
     }
-
     res.render("team", {
       team: team,
       types: pokemonTypes,
