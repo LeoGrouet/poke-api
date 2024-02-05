@@ -1,4 +1,4 @@
-const player = require("../../serveur/models/playerModel");
+const player = require("../../server/models/playerModel");
 
 const teamController = {
   getMyTeam: async (req, res) => {
