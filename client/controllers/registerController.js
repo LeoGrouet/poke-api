@@ -3,7 +3,9 @@ const bcrypt = require("bcrypt");
 
 const registerController = {
   login: (req, res) => {
-    res.render("login");
+    const message = req.session.message;
+    req.session.message = null; // Efface le message après l'avoir récupéré
+    res.render("login", { message });
   },
 
   signup: (req, res) => {
@@ -41,7 +43,7 @@ const registerController = {
       const password = req.body.password;
       const comparePassword = await bcrypt.compare(password, check.password);
       if (comparePassword) {
-        console.log(player);
+        req.session.player = check;
         res.redirect("/");
       } else {
         res.send("Mot de passe incorect");

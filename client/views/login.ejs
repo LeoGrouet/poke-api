@@ -5,6 +5,9 @@
         <div class="login-title"><p>Login</p></div>
         <div class="login-form">
             <fieldset>
+              <% if (message) { %>
+              <div><%= message %></div>
+              <% } %>
           <form class="login-page-form" method="POST" action="/login">
             <div class="login-form-input">
                 <label class="login-form-username-label" for="username">Pseudo</label>
