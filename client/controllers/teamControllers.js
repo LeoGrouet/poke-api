@@ -6,12 +6,11 @@ const teamController = {
       const message = "Vous devez être connecté pour accéder à cette page";
       req.session.message = message;
       res.redirect("/login");
-      
+
       return;
     }
 
     const team = req.session.player.team;
-    // const team = await player.team;
 
     const pokemonTypes = [];
     const pokemonNameFr = [];

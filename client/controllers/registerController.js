@@ -1,10 +1,10 @@
-const player = require("../../serveur/models/playerModel");
+const player = require("../../server/models/playerModel");
 const bcrypt = require("bcrypt");
 
 const registerController = {
   login: (req, res) => {
     const message = req.session.message;
-    req.session.message = null; // Efface le message après l'avoir récupéré
+    req.session.message = null;
     res.render("login", { message });
   },
 
@@ -36,14 +36,14 @@ const registerController = {
 
   loginPost: async (req, res) => {
     try {
-      const check = await player.findOne({ username: req.body.username });
-      if (!check) {
+      const player = await player.findOne({ username: req.body.username });
+      if (!player) {
         res.send("Ce pseudo n'existe pas !");
       }
       const password = req.body.password;
       const comparePassword = await bcrypt.compare(password, check.password);
       if (comparePassword) {
-        req.session.player = check;
+        req.session.player = player;
         res.redirect("/");
       } else {
         res.send("Mot de passe incorect");

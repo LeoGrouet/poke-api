@@ -1,6 +1,6 @@
 const express = require("express");
 const APIFetch = require("./client/controllers/apiCallController");
-const playerController = require("./serveur/controllers/playerController");
+const playerController = require("./server/controllers/playerController");
 const teamController = require("./client/controllers/teamControllers");
 const registerController = require("./client/controllers/registerController.js");
 const gamesController = require("./client/controllers/gamesController");
