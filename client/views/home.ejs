@@ -13,7 +13,9 @@
                             <% } %>
                         </a>
                         <div class="add-button">
+                            <% if(session) {%>
                             <a href="<%= baseUrl %>/add/<%= pokeImg[i].id %>">Capturez le ! <img src="../img/IcTwotoneCatchingPokemon.svg" alt="pokeball"></a>
+                       <% } %>
                         </div>
                         <ul class="pokedex-details-type-liste">
                             <% for (const type of pokeType[i]) { %>

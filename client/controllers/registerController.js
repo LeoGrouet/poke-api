@@ -13,43 +13,50 @@ const registerController = {
   },
 
   signupPost: async (req, res) => {
-    const data = {
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    };
+    try {
+      const data = {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+      };
 
-    const existingUser = await player.findOne({ username: data.username });
+      const existingUser = await player.findOne({ username: data.username });
 
-    if (existingUser) {
-      res.send("Ce pseudo existe déja ! Choisis en un autre !");
-    } else {
+      if (existingUser) {
+        return res.send("Ce pseudo existe déjà ! Choisissez-en un autre !");
+      }
+
       const saltsRound = 10;
       const hashPassword = await bcrypt.hash(data.password, saltsRound);
       data.password = hashPassword;
 
-      const userdata = await player.insertMany(data);
-      console.log(userdata);
+      await player.create(data);
+
+      res.redirect("/login");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Quelque chose cloche");
     }
-    res.redirect("/login");
   },
 
   loginPost: async (req, res) => {
     try {
-      const player = await player.findOne({ username: req.body.username });
-      if (!player) {
-        res.send("Ce pseudo n'existe pas !");
+      const user = await player.findOne({ username: req.body.username });
+
+      if (!user) {
+        res.redirect("/signup");
+        return;
       }
       const password = req.body.password;
-      const comparePassword = await bcrypt.compare(password, check.password);
+      const comparePassword = await bcrypt.compare(password, user.password);
       if (comparePassword) {
-        req.session.player = player;
+        req.session.player = user;
         res.redirect("/");
       } else {
-        res.send("Mot de passe incorect");
+        return res.send("Mot de passe incorect");
       }
     } catch (error) {
-      res.send("Quelque chose cloche");
+      return res.send("Quelque chose cloche");
     }
   },
 };

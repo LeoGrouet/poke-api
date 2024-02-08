@@ -383,3 +383,12 @@ img{
   .loosing-div{
     color: #BB5544;
   }
+
+  .login-message-for-connection{
+    color: black;
+    font-size: small;
+    background-color: #ffffff;
+    opacity: 0.8;
+    border-radius: 0.375rem;
+    padding: 1rem;
+  }

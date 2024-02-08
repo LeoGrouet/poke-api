@@ -21,7 +21,7 @@ const playerSchema = new mongoose.Schema({
   team: {
     type: [
       {
-        type: mongoose.Schema.Types.ObjectId, // Si les éléments du tableau sont des références à d'autres documents
+        type: Number, // Si les éléments du tableau sont des références à d'autres documents
         ref: "Pokemon", // Remplacez 'Pokemon' par le modèle approprié
       },
     ],

@@ -1,4 +1,5 @@
 const player = require("../../server/models/playerModel");
+const APIFetch = require("./apiCallController");
 
 const teamController = {
   getMyTeam: async (req, res) => {
@@ -10,28 +11,25 @@ const teamController = {
       return;
     }
 
+    // get the team of the player [1, 2, 3]
     const team = req.session.player.team;
 
+    // For each pokemon in the team, fetch data from the API pokemon with the id of the pokemon
+    const pokemonData = [];
     const pokemonTypes = [];
     const pokemonNameFr = [];
 
-    for (const poke of team) {
-      pokemonTypes.push(poke);
-    }
-
-    for (let i = 0; i < team.length; i++) {
-      const pokemonName = team[i].name; // Utilisez l'ID du Pokémon depuis l'image
-
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon-species/${pokemonName}/`
-      );
+    for (const id of team) {
+      url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+      console.log(url);
+      const response = await fetch(url);
       const data = await response.json();
-
-      const frenchName = data.names.find(
-        (name) => name.language.name === "fr"
-      ).name;
-      pokemonNameFr.push(frenchName);
+      pokemonData.push(data);
+      pokemonTypes.push(data.types);
+      console.log(pokemonData, pokemonTypes);
     }
+    // Need to get : name, image, type, id, nameFr
+
     res.render("team", {
       team: team,
       types: pokemonTypes,
@@ -40,29 +38,24 @@ const teamController = {
   },
 
   addPokemonToTeam: async (req, res) => {
-    const team = req.session.team; // récupere l'array Team
-    const id = req.params.id; // Récupere l'id du pokémon cliqué
-    const currentUrl = req.get("referer"); // permet de resté sur la page en cours
+    const playerId = req.session.player._id;
 
-    // Condition : tant que la team ne comporte pas 6 pokémon
-    if (team.length < 6) {
-      // Alors je push le pokémon selectionné dans la Team
-      try {
-        const pokemonByOrder = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${id}`
-        );
-        const pokemon = await pokemonByOrder.json();
-        team.push(pokemon);
+    try {
+      const user = await player.findById(playerId);
 
-        res.redirect(currentUrl);
-      } catch (error) {
-        res.status(500).send(error.message);
-      }
-      // Sinon un message d'erreur m'indique que mon équipe est pleine.
-    } else {
-      res
-        .send("L'équipe est déjà pleine (limite de 6 Pokémon)")
-        .redirect(currentUrl);
+      const idOfPokemon = req.params.id;
+
+      const currentUrl = req.get("referer");
+
+      // Ajoutez l'ID du Pokémon à la team du joueur
+      user.team.push(idOfPokemon); // Supposons que votre Pokémon ait un champ _id dans votre modèle
+
+      await user.save(); // Enregistrez les modifications apportées au joueur dans la base de données
+
+      res.redirect(currentUrl);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send(error.message);
     }
   },
 

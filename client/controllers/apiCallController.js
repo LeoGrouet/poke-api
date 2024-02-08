@@ -42,6 +42,8 @@ const APIFetch = {
         pokemonNameFr.push(frenchName);
       }
 
+      const session = req.session.player;
+
       res.render("home", {
         baseUrl: "",
         pokemon: pokemonData,
@@ -50,6 +52,7 @@ const APIFetch = {
         pokeNameFr: pokemonNameFr,
         limit: limit,
         offset: offset,
+        session: session,
       });
     } catch (error) {
       res.status(500).send(error.message);

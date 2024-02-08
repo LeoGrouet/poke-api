@@ -6,7 +6,7 @@
         <div class="login-form">
             <fieldset>
               <% if (message) { %>
-              <div><%= message %></div>
+              <div class="login-message-for-connection"><%= message %></div>
               <% } %>
           <form class="login-page-form" method="POST" action="/login">
             <div class="login-form-input">
