@@ -47,10 +47,9 @@ const teamController = {
 
       const currentUrl = req.get("referer");
 
-      // Ajoutez l'ID du Pokémon à la team du joueur
-      user.team.push(idOfPokemon); // Supposons que votre Pokémon ait un champ _id dans votre modèle
+      user.team.push(idOfPokemon);
 
-      await user.save(); // Enregistrez les modifications apportées au joueur dans la base de données
+      await user.save();
 
       res.redirect(currentUrl);
     } catch (error) {

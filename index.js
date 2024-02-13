@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const router = require("./router");
 const session = require("express-session");
 
-const port = process.env.port;
+const PORT = process.env.PORT;
 // Configure EJS as the view engine
 app.set("view engine", "ejs");
 
@@ -34,5 +34,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router);
 // Start the Express server
 app.listen(4000, () => {
-  console.log(`Server listening on port ${port}`);
+  console.log(`Server listening on port ${PORT}`);
 });
